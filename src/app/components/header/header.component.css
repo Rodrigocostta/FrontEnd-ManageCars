@@ -1,0 +1,43 @@
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  border-bottom: 2px solid #1f41bb;
+}
+.brand,.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.brand img {
+  width:40px;
+  margin-right: 0.6em;
+}
+.brand h2 {
+  transition: 0.4ms;
+}
+
+.links li{
+  margin-right: 1em;
+  list-style: none;
+}
+.links a {
+  padding: 0.1em, 0.3em;
+}
+#add a {
+  color:#1f41bb
+}
+#add a:hover {
+  background-color: #efefef;
+}
+
+select{
+  width: 150px;
+   height: 50px;
+   font-size: 20px;
+   background: #f2f2f3;
+   padding-left: 100px
+
+}

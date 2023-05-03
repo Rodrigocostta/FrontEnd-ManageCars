@@ -1,0 +1,36 @@
+<h2> Novo <span>Serviço</span>.</h2>
+
+<form  (ngSubmit)="enviarForm()" [formGroup] ="servicoForm" #FormDir="ngForm" >
+
+
+
+
+  <div class="form-group">
+    <input type="text" placeholder="Nome do cliente." formControlName="description" required/>
+<div *ngIf="nome.invalid && FormDir.submitted" class="validation-error">
+
+  <p> O campo Nome precisa ser preenchido!</p>
+
+</div>
+  </div>
+
+  <div class="form-group">
+    <input  placeholder="Numeração da placa do veículo." formControlName="description" required/>
+<div *ngIf="placa.invalid && FormDir.submitted" class="validation-error">
+
+  <p> O campo Placa precisa ser preenchido!</p>
+
+</div>
+  </div>
+  <div class="form-group">
+    <input  placeholder="Novo serviço." formControlName="description" required/>
+<div *ngIf="servico.invalid && FormDir.submitted" class="validation-error">
+
+  <p> O campo Placa precisa ser preenchido!</p>
+
+</div>
+  </div>
+
+
+  <input type="submit" value="{{btnText}}">
+</form>
