@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
+
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +20,7 @@ import { ProdutosComponent } from './components/pages/produtos/produtos.componen
 import { FuncionarioComponent } from './components/pages/funcionario/funcionario.component';
 import { ClienteFormsComponent } from './components/cliente-forms/cliente-forms.component';
 import { NovoClienteComponent } from './components/pages/novo-cliente/novo-cliente.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,12 @@ import { NovoClienteComponent } from './components/pages/novo-cliente/novo-clien
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NoopAnimationsModule,
+    MatSlideToggleModule,
+    MatExpansionModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
