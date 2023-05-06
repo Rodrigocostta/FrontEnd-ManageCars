@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StatusComponent } from './components/pages/status/status.component';
 
 
+
 /*para que os componets possão ser mostrados na pagina principal do sistema
 precisamos definir as notas dentro do app-routing por meio de imports */
 

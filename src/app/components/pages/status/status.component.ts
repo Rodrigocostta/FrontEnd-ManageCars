@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 
 export class StatusComponent {
   painelOpenState = false ;
-  displayedColumns: string[] = [ 'name', 'weight', 'symbol','acoes'];
+  displayedColumns: string[] = [ 'name', 'weight', 'symbol','servico','total','acoes'];
   dataSource = ELEMENT_DATA;
 
 }

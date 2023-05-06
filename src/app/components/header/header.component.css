@@ -4,6 +4,7 @@ nav {
   justify-content: space-between;
   padding: 1em;
   border-bottom: 2px solid #1f41bb;
+  background-color: rgb(209, 207, 207);
 }
 .brand,.links {
   display: flex;
@@ -17,12 +18,15 @@ nav {
 }
 .brand h2 {
   transition: 0.4ms;
+
 }
 
 .links li{
   margin-right: 1em;
   list-style: none;
+  font-size: 2ch;
 }
+
 .links a {
   padding: 0.1em, 0.3em;
 }
@@ -40,4 +44,7 @@ select{
    background: #f2f2f3;
    padding-left: 100px
 
+}
+.optionCliente{
+align-items: center;
 }

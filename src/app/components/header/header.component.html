@@ -1,4 +1,5 @@
 
+
 <nav>
 
   <a  class="brand" routerLink="/">
@@ -7,11 +8,19 @@
   </a>
 
     <ul class="links">
-      <li > <a  routerLink="/novoservico"> Novo Serviço</a></li>
-      <li > <a  routerLink="/novo-cliente"> Cadastar Cliente</a></li>
+      <li> <button mat-button ><a routerLink=" "> Status</a></button></li>
+      <li ><button mat-button ><a  routerLink="/novoservico"> Novo Serviço</a></button></li>
+      <li >
+        <button mat-button [matMenuTriggerFor]="menu">Cliente</button>
+<mat-menu #menu="matMenu">
+     <button mat-menu-item> <a  routerLink="/novo-cliente">Novo Cliente</a></button>
+     <button mat-menu-item>Listar Clientes</button>
+</mat-menu>
+</li>
 
-      <li> <a routerLink=" "> Status</a></li>
+
 
 
     </ul>
   </nav>
+
