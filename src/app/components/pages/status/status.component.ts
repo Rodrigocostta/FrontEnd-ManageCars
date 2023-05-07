@@ -8,20 +8,23 @@ import { Component } from '@angular/core';
 
 export class StatusComponent {
   painelOpenState = false ;
-  displayedColumns: string[] = [ 'name', 'weight', 'symbol','servico','total','acoes'];
+  displayedColumns: string[] = [ 'info','nome', 'placa','servico','total','acoes'];
   dataSource = ELEMENT_DATA;
 
 }
 
 export interface PeriodicElement {
-  name: string;
-  weight: number;
-  symbol: string;
+  info: string;
+  nome: string;
+  placa: string;
+  servico: string;
   acoes: string;
+  total:number;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {name: 'Hydrogen', weight: 1.0079, symbol: 'H', acoes: 'hkj'},
+  {info:'',nome:'Diego Silva', placa: 'HTI4578',servico: 'lavagem de banco',total: 250.00, acoes: ''},
+  {info:'',nome:'Zé Francisco', placa: 'HTI4578',servico: 'lavagem ',total: 30.00, acoes: ''},
 
 
 ];

@@ -1,7 +1,6 @@
 import { NovoClienteComponent } from './components/pages/novo-cliente/novo-cliente.component';
 import { ClienteFormsComponent } from './components/cliente-forms/cliente-forms.component';
 import { NovoServicoComponent } from './components/pages/novo-servico/novo-servico.component';
-import { FuncionarioComponent } from './components/pages/funcionario/funcionario.component';
 import { ProdutosComponent } from './components/pages/produtos/produtos.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -24,7 +23,6 @@ const routes: Routes = [
   {path: 'footer', component:FooterComponent},
   {path: 'header', component:HeaderComponent},
   {path: 'produtos', component: ProdutosComponent},
-  {path: 'funcionarios', component:FuncionarioComponent},
   {path: 'novoservico', component: NovoServicoComponent},
   {path: 'clienteForm', component: ClienteFormsComponent},
   {path: 'novo-cliente', component: NovoClienteComponent}

@@ -23,22 +23,22 @@ import { FooterComponent } from './components/footer/footer.component';
 import { StatusComponent } from './components/pages/status/status.component';
 import { NovoServicoComponent } from './components/pages/novo-servico/novo-servico.component';
 import { ProdutosComponent } from './components/pages/produtos/produtos.component';
-import { FuncionarioComponent } from './components/pages/funcionario/funcionario.component';
 import { ClienteFormsComponent } from './components/cliente-forms/cliente-forms.component';
 import { NovoClienteComponent } from './components/pages/novo-cliente/novo-cliente.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ListaClienteComponent } from './components/pages/lista-cliente/lista-cliente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-        StatusComponent,
+    StatusComponent,
     NovoServicoComponent,
     ProdutosComponent,
-    FuncionarioComponent,
     ClienteFormsComponent,
     NovoClienteComponent,
+    ListaClienteComponent,
 
   ],
   imports: [
