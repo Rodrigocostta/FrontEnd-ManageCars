@@ -8,19 +8,23 @@
   </a>
 
     <ul class="links">
-      <li> <button mat-button ><a routerLink=" "> Status</a></button></li>
+      <li> <button mat-button ><a routerLink=""> Status</a></button></li>
       <li ><button mat-button ><a  routerLink="/novoservico"> Novo Serviço</a></button></li>
       <li >
-        <button mat-button [matMenuTriggerFor]="menu">Cliente</button>
-<mat-menu #menu="matMenu">
-     <button mat-menu-item> <a  routerLink="/novo-cliente">Novo Cliente</a></button>
-     <button mat-menu-item>Listar Clientes</button>
+
+<button mat-button [matMenuTriggerFor]="menuCliente">Cliente</button>
+<mat-menu #menuCliente="matMenu">
+  <button mat-menu-item><a  routerLink="/novo-cliente">Novo Cliente</a></button>
+  <button mat-menu-item><a  routerLink="/lista-cliente"> Listar Cliente</a></button>
 </mat-menu>
 </li>
-
-
-
-
-    </ul>
+<li>
+  <button mat-button [matMenuTriggerFor]="menuUsuario">Usúario</button>
+<mat-menu #menuUsuario="matMenu">
+  <button mat-menu-item><a  routerLink="/lista-servico">Serviços</a></button>
+  <button mat-menu-item><a  routerLink="/lancamento">Lamçamentos</a></button>
+</mat-menu>
+ </li>
+</ul>
   </nav>
 

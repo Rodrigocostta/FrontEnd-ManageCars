@@ -8,19 +8,21 @@ import { Component } from '@angular/core';
 export class ListaClienteComponent {
 
   painelOpenState = false ;
-  displayedColumns: string[] = [ 'name', 'weight', 'symbol','servico','total','acoes'];
+  displayedColumns: string[] = ['info','nome','placa','acoes'];
   dataSource = ELEMENT_DATA;
 }
 
 export interface ListarCliente {
-  name: string;
-  weight: number;
-  symbol: string;
-  acoes: string;
+
+  info: string;
+  nome: string;
+  placa: string;
+ acoes: string;
+
 }
 
 const ELEMENT_DATA: ListarCliente[] = [
-  {name: '', weight: 0, symbol: '', acoes: ''},
+  {info: '',nome: 'ze ricardo', placa:'hti7845', acoes: ''},
 
 
 ];

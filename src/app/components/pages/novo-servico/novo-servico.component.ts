@@ -2,6 +2,11 @@ import { Component,Input } from '@angular/core';
 
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 
 @Component({
   selector: 'app-novo-servico',
@@ -10,6 +15,16 @@ import {FormGroup,FormControl,Validators} from '@angular/forms';
 })
 export class NovoServicoComponent {
   @Input() btnText!:String;
+  foods: Food[] = [
+    {value: 'steak-0', viewValue: 'Steak'},
+    {value: 'pizza-1', viewValue: 'Pizza'},
+    {value: 'tacos-2', viewValue: 'Tacos'},
+  ];
+
+  foodControl = new FormControl(this.foods[2].value);
+  form = new FormGroup({
+    food: this.foodControl,
+  });
 
   servicoForm!: FormGroup;
 

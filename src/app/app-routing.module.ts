@@ -5,6 +5,9 @@ import { ProdutosComponent } from './components/pages/produtos/produtos.componen
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StatusComponent } from './components/pages/status/status.component';
+import { ListaClienteComponent } from './components/pages/lista-cliente/lista-cliente.component';
+import { ListaServicoComponent } from './components/pages/lista-servico/lista-servico.component';
+import { LancamentosComponent } from './components/pages/lancamentos/lancamentos.component';
 
 
 
@@ -19,13 +22,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: ' ', component: StatusComponent},
+  {path: '', component: StatusComponent},
   {path: 'footer', component:FooterComponent},
   {path: 'header', component:HeaderComponent},
   {path: 'produtos', component: ProdutosComponent},
   {path: 'novoservico', component: NovoServicoComponent},
   {path: 'clienteForm', component: ClienteFormsComponent},
-  {path: 'novo-cliente', component: NovoClienteComponent}
+  {path: 'novo-cliente', component: NovoClienteComponent},
+  {path: 'lista-cliente', component: ListaClienteComponent},
+  {path: 'lista-servico',component: ListaServicoComponent},
+  {path: 'lancamento',component: LancamentosComponent}
 
 ];
 

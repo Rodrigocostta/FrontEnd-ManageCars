@@ -23,7 +23,15 @@
 </div>
   </div>
   <div class="form-group">
-    <input  placeholder="Novo serviço." formControlName="description" required/>
+    <mat-form-field appearance="fill">
+      <mat-select [formControl]="foodControl" name="food">
+        <mat-option>Serviços</mat-option>
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
 <div *ngIf="servico.invalid && FormDir.submitted" class="validation-error">
 
   <p> O campo Placa precisa ser preenchido!</p>
@@ -34,3 +42,5 @@
 
   <input type="submit" value="{{btnText}}">
 </form>
+<a> podemos fazer mais de um servço ao mesmo tempo.Logo temos que gerar uma lista antes de finalizar a ssolicitação</a>
+
