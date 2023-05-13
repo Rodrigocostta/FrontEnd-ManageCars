@@ -33,6 +33,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ListaClienteComponent } from './components/pages/lista-cliente/lista-cliente.component';
 import { ListaServicoComponent } from './components/pages/lista-servico/lista-servico.component';
 import { LancamentosComponent } from './components/pages/lancamentos/lancamentos.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ElementDialogComponent } from './components/shared/element-dialog/element-dialog.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 @NgModule({
   declarations: [
@@ -47,6 +53,7 @@ import { LancamentosComponent } from './components/pages/lancamentos/lancamentos
     ListaClienteComponent,
     ListaServicoComponent,
     LancamentosComponent,
+    ElementDialogComponent,
 
 
   ],
@@ -64,6 +71,9 @@ import { LancamentosComponent } from './components/pages/lancamentos/lancamentos
     MatIconModule,
     MatMenuModule,
     MatSelectModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
 
 
   ],

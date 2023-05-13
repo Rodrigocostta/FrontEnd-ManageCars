@@ -1,0 +1,22 @@
+<h2 mat-dialog-title *ngIf="!option">Adicionar Novo Serviço</h2>
+<h2 mat-dialog-title *ngIf="option">Editar Serviço</h2>
+<div mat-dialog-content>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Descrição</mat-label>
+    <input matInput [(ngModel)]="data.descricao">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Valor</mat-label>
+    <input matInput [(ngModel)]="data.valor">
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button  *ngIf="!option" [mat-dialog-close]="data" cdkFocusInitial>Adicionar</button>
+  <button mat-button *ngIf="option" [mat-dialog-close]="data" cdkFocusInitial>Atualizar</button>
+
+
+</div>

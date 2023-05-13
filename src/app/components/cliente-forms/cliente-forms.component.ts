@@ -25,6 +25,7 @@ this.clienteForm = new FormGroup({
 id: new FormControl (''),
 cpf: new FormControl('',[Validators.required]),
 nome: new FormControl('', [Validators.required]),
+numero: new FormControl('', [Validators.required]),
 marca: new FormControl('', [Validators.required]),
 modelo: new FormControl('', [Validators.required]),
 placa: new FormControl('', [Validators.required]),
@@ -42,6 +43,10 @@ get cpf(){
 get nome(){
 
   return this.clienteForm.get('nome')!;
+}
+get numero(){
+
+  return this.clienteForm.get('numero')!;
 }
 
 get marca(){
