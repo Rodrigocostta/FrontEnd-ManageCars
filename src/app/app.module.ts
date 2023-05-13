@@ -37,6 +37,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ElementDialogComponent } from './components/shared/element-dialog/element-dialog.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { LancamentoComponent } from './components/shared/lancamento/lancamento.component';
 
 
 
@@ -54,6 +55,7 @@ import {MatInputModule} from '@angular/material/input';
     ListaServicoComponent,
     LancamentosComponent,
     ElementDialogComponent,
+    LancamentoComponent,
 
 
   ],

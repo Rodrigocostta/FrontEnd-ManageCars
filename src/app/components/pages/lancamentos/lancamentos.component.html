@@ -1,7 +1,7 @@
 <h2 class ="titulos"><a>Lançamentos</a></h2>
 
   <div class="add-button-container">
-    <button mat-mini-fab color="primary">
+    <button mat-mini-fab (click)="openDialog(null)" color="primary">
       <mat-icon>add</mat-icon>
     </button>
   </div>
@@ -9,12 +9,47 @@
 
   <div class = "container">
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
-<!-- Servico -->
+<!-- id -->
+<ng-container matColumnDef="id">
+  <th  mat-header-cell *matHeaderCellDef> ID</th>
+  <td mat-cell *matCellDef="let element"> {{element.id}}  </td>
+</ng-container>
+
+
+<!-- Data-->
+<ng-container matColumnDef="data">
+  <th mat-header-cell *matHeaderCellDef> Data </th>
+  <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+</ng-container>
+
+
+<!-- Categoria-->
+<ng-container matColumnDef="categoria">
+  <th mat-header-cell *matHeaderCellDef> Categoria </th>
+  <td mat-cell *matCellDef="let element"> {{element.categoria}} </td>
+</ng-container>
+
+
+<!-- descrição-->
 <ng-container matColumnDef="descricao">
-  <th  mat-header-cell *matHeaderCellDef> Descrição</th>
-  <td mat-cell *matCellDef="let element"> {{element.descricao}}  </td>
+  <th mat-header-cell *matHeaderCellDef> Descrição </th>
+  <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+</ng-container>
+
+
+<!-- Forma de Pagamento-->
+<ng-container matColumnDef="pagamento">
+  <th mat-header-cell *matHeaderCellDef> Forma de Pagamento </th>
+  <td mat-cell *matCellDef="let element"> {{element.pagamento}} </td>
+</ng-container>
+
+
+<!-- situação-->
+<ng-container matColumnDef="situacao">
+  <th mat-header-cell *matHeaderCellDef> Situação </th>
+  <td mat-cell *matCellDef="let element"> {{element.situacao}} </td>
 </ng-container>
 
 <!-- Valor-->
@@ -29,10 +64,10 @@
   <td mat-cell *matCellDef="let element">
     <div class = "containerIcon">
 
-      <button mat-icon-button >
+      <button mat-icon-button (click)="onUpdate(element)" >
         <mat-icon>mode_edit</mat-icon>
      </button>
-      <button mat-icon-button >
+      <button mat-icon-button (click)="onDelete(element.valor)">
         <mat-icon>delete</mat-icon>
       </button>
 
@@ -43,7 +78,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-<a> fazer a edicao e inserção por card ou adicionar maisuma linha na baela</a>
 </div>
 

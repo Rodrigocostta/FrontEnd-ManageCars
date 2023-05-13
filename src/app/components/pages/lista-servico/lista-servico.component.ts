@@ -28,7 +28,7 @@ export class ListaServicoComponent implements OnInit {
          {
           descricao: '',
           valor: null
-        }:  {
+        }:{
           descricao: element.descricao,
           valor: element.valor
         }
@@ -54,7 +54,7 @@ export class ListaServicoComponent implements OnInit {
   }
 
   //update
-  onUpdatre(element:ListarLancamneto): void{
+  onUpdate(element:ListarLancamneto): void{  ''
     this.openDialog(element);
   }
 
@@ -71,8 +71,8 @@ export class ListaServicoComponent implements OnInit {
   }
 
   const ELEMENT_DATA:ListarLancamneto[] = [
-    {descricao:'motor',valor:50.0},
-    {descricao:'chassi',valor:50.000},
+    {descricao:'motor',valor:50.02},
+    {descricao:'chassi',valor:50.10},
     {descricao:'lvagem + cera',valor:50.00},
     {descricao:'Lavagem',valor:35.00},
 
