@@ -1,8 +1,7 @@
 import { Component,Inject,OnInit } from '@angular/core';
 import { ListarLancamneto } from '../../pages/lista-servico/lista-servico.component';
 import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import { Lancamentos } from '../../pages/lancamentos/lancamentos.component';
-
+import { LancamentosElement } from 'src/app/models/lancamentoElement';
 @Component({
   selector: 'app-lancamento',
   templateUrl: './lancamento.component.html',
@@ -11,13 +10,13 @@ import { Lancamentos } from '../../pages/lancamentos/lancamentos.component';
 
   export class LancamentoComponent implements OnInit {
 
-      element!: Lancamentos;
+      element!: LancamentosElement;
       option!: boolean;
 
 
       constructor(
-        public dialogRef: MatDialogRef<Lancamentos>,
-        @Inject(MAT_DIALOG_DATA) public data: Lancamentos) {}
+        public dialogRef: MatDialogRef<LancamentosElement>,
+        @Inject(MAT_DIALOG_DATA) public data: LancamentosElement) {}
 
 
       ngOnInit():void{

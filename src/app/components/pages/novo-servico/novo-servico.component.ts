@@ -16,9 +16,10 @@ interface Food {
 export class NovoServicoComponent {
   @Input() btnText!:String;
   foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
+    {value: 'Serviços Dispoveis-0', viewValue: 'Serviços Dispoveis'},
+    {value: 'motor-1', viewValue: 'motor'},
+    {value: 'chassi-2', viewValue: 'shassi'},
+    {value: 'lavagem-3', viewValue: 'lavagem'}
   ];
 
   foodControl = new FormControl(this.foods[2].value);

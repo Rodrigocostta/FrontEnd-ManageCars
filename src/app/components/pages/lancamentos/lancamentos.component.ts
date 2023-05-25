@@ -1,9 +1,9 @@
+import { LancamentosElement } from 'src/app/models/lancamentoElement';
 import { LancamentoComponent } from './../../shared/lancamento/lancamento.component';
-import { ElementDialogComponent } from './../../shared/element-dialog/element-dialog.component';
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
-
+import { LancamentoService } from 'src/app/servicies/lancamento.service';
 
 
 
@@ -11,7 +11,8 @@ import { MatTable } from '@angular/material/table';
 @Component({
   selector: 'app-lancamentos',
   templateUrl: './lancamentos.component.html',
-  styleUrls: ['./lancamentos.component.css']
+  styleUrls: ['./lancamentos.component.css'],
+  providers:[LancamentoService]
 })
 export class LancamentosComponent implements OnInit {
 
@@ -19,14 +20,24 @@ export class LancamentosComponent implements OnInit {
       table!: MatTable<any>;
       painelOpenState = false ;
       displayedColumns: string[] = ['id','data','categoria','descricao','pagamento','situacao','valor','acoes'];
-      dataSource = ELEMENT_DATA;
+      dataSource!: LancamentosElement[];
 
 
-      constructor(public dialog: MatDialog){}
+      constructor(
+        public dialog: MatDialog,
+        public  chamadaServico: LancamentoService
+        ){
+
+        this.chamadaServico.getLancamento().subscribe((data: LancamentosElement[]) =>
+          { this.dataSource = data;
+          });
+
+        }
+
       ngOnInit(): void{}
 
 
-      openDialog(element:Lancamentos| null):void{
+      formularioCliente(element:LancamentosElement| null):void{
           const dialogRef = this.dialog.open(LancamentoComponent, {
           width:'500px',
             data: element === null ?
@@ -55,10 +66,14 @@ export class LancamentosComponent implements OnInit {
                 this.dataSource[result.position - 1 ] = result;
                 this.table.renderRows();
 
-              }else
-              {
-                this.dataSource.push(result);
-              this.table.renderRows();
+              }else {
+                this.chamadaServico.create(result)
+                .subscribe((data: LancamentosElement) =>{
+                  this.dataSource.push(result);
+                  this.table.renderRows();
+
+                });
+
               }
 
 
@@ -69,35 +84,18 @@ export class LancamentosComponent implements OnInit {
       }
 
       //update
-      onUpdate(element:Lancamentos): void{  ''
-        this.openDialog(element);
+      onUpdate(element:LancamentosElement): void{  ''
+        this.formularioCliente(element);
       }
 
       //delete
       onDelete(id:number):void{
-        this.dataSource = this.dataSource.filter(p => p.valor !== id);
+        this.chamadaServico.delete(id)
+        .subscribe(() =>{
+
+  this.dataSource = this.dataSource.filter(p => p.id !== id);
+        })
+
 
       }
     }
-
-export interface Lancamentos{
-    id:number;
-    data:string;
-    categoria: String;
-    descricao: string;
-    pagamento:string;
-    situacao: string;
-    valor: number;
-
-
-  }
-
-  const ELEMENT_DATA: Lancamentos[] = [
-    {id:1,data:'25/12/2022',categoria:'pruduto',descricao:'Lm',pagamento:'debito',situacao:'pago',valor:70.00},
-    {id:2,data:'29/03/2022',categoria:'lanche',descricao:'pão de  queijo',pagamento:'dinhrito',situacao:'pago',valor:50.00},
-    {id:3,data:'05/08/2022',categoria:'manutenção',descricao:'mangueira',pagamento:'credito',situacao:'pago',valor:200.00},
-    {id:4,data:'14/09/2022',categoria:'salario',descricao:'salario ray',pagamento:'pix',situacao:'pago',valor:1500.00}
-
-
-
-  ];

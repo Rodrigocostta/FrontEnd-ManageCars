@@ -1,7 +1,7 @@
 <h2 class ="titulos"><span>Clientes</span> Cadastrados</h2>
 
   <div class="add-button-container">
-    <button mat-mini-fab color="primary">
+    <button mat-mini-fab (click)="formularioCliente(null)" color="primary">
       <mat-icon>add</mat-icon>
     </button>
   </div>
@@ -12,16 +12,11 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
 
- <!-- informaçoes -->
- <ng-container matColumnDef="info">
-  <th  mat-header-cell *matHeaderCellDef> Detalhar</th>
-  <td mat-cell *matCellDef="let element">
-       <button mat-icon-button  >
 
-    <mat-icon  routerLink="/novo-cliente"> info_outline</mat-icon>
-  </button> </td>
-
-
+<!-- id -->
+<ng-container matColumnDef="id">
+  <th  mat-header-cell *matHeaderCellDef> Id</th>
+  <td mat-cell *matCellDef="let element"> {{element.id}}  </td>
 </ng-container>
 
 <!-- cliente -->
@@ -31,9 +26,9 @@
 </ng-container>
 
 <!-- PLaca-->
-<ng-container matColumnDef="placa">
-  <th mat-header-cell *matHeaderCellDef> Placa </th>
-  <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
+<ng-container matColumnDef="contato">
+  <th mat-header-cell *matHeaderCellDef> Contato </th>
+  <td mat-cell *matCellDef="let element"> {{element.contato}} </td>
 </ng-container>
 
  <!-- Acões  -->
@@ -53,17 +48,7 @@
     </td>
   </ng-container>
 
-
-  <!-- Total a pagar -->
-  <ng-container matColumnDef="total">
-    <th  mat-header-cell *matHeaderCellDef> Total</th>
-    <td mat-cell *matCellDef="let element"> {{element.total}} </td>
-  </ng-container>
-
-
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
-

@@ -1,7 +1,7 @@
 <h2 class ="titulos"><a>Lançamentos</a></h2>
 
   <div class="add-button-container">
-    <button mat-mini-fab (click)="openDialog(null)" color="primary">
+    <button mat-mini-fab (click)="formularioCliente(null)" color="primary">
       <mat-icon>add</mat-icon>
     </button>
   </div>
@@ -67,7 +67,7 @@
       <button mat-icon-button (click)="onUpdate(element)" >
         <mat-icon>mode_edit</mat-icon>
      </button>
-      <button mat-icon-button (click)="onDelete(element.valor)">
+      <button mat-icon-button (click)="onDelete(element.id)">
         <mat-icon>delete</mat-icon>
       </button>
 

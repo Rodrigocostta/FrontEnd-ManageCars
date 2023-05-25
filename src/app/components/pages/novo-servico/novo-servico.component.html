@@ -24,7 +24,7 @@
   </div>
   <div class="form-group">
     <mat-form-field appearance="fill">
-      <mat-select [formControl]="foodControl" name="food">
+      <mat-select [formControl]="foodControl" name="food"  >
         <mat-option>Serviços</mat-option>
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
@@ -37,10 +37,11 @@
   <p> O campo Placa precisa ser preenchido!</p>
 
 </div>
+
+<input type="submit" value="{{btnText}}">
+
   </div>
 
 
-  <input type="submit" value="{{btnText}}">
 </form>
-<a> podemos fazer mais de um servço ao mesmo tempo.Logo temos que gerar uma lista antes de finalizar a ssolicitação</a>
 
