@@ -1,5 +1,5 @@
+import { ServicoElement } from './../../../models/ServicoElement';
 import { Component,Inject,OnInit } from '@angular/core';
-import { ListarLancamneto } from '../../pages/lista-servico/lista-servico.component';
 import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
@@ -8,18 +8,18 @@ import { MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./element-dialog.component.css']
 })
 export class ElementDialogComponent implements OnInit {
-element!: ListarLancamneto;
+element!: ServicoElement;
 option!: boolean;
 
 
 constructor(
   public dialogRef: MatDialogRef<ElementDialogComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: ListarLancamneto) {}
+  @Inject(MAT_DIALOG_DATA) public data: ServicoElement) {}
 
 
 ngOnInit():void{
 
-  if (this.data.valor != null){
+  if (this.data.id != null){
     this.option = true;
   }else{
     this.option = false;

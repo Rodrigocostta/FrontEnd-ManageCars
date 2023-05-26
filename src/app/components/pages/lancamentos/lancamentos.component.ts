@@ -19,7 +19,7 @@ export class LancamentosComponent implements OnInit {
     @ViewChild(MatTable)
       table!: MatTable<any>;
       painelOpenState = false ;
-      displayedColumns: string[] = ['id','data','categoria','descricao','pagamento','situacao','valor','acoes'];
+      displayedColumns: string[] = ['id','data','categoria','descricao','formaDePagamento','lancamentoStatus','valor','acoes'];
       dataSource!: LancamentosElement[];
 
 
@@ -42,20 +42,19 @@ export class LancamentosComponent implements OnInit {
           width:'500px',
             data: element === null ?
              {
-              id:null,
-              data:'',
+
               categoria: '',
               descricao:'',
               pagamento:'',
               situacao: '',
-              valor: null
+              valor: ''
             }:{
               id: element.id,
               data: element.data,
               categoria: element.categoria,
               descricao:element.descricao,
-              pagamento:element.pagamento,
-              situacao: element.situacao,
+              formaDePagamento:element.formaDePagamento,
+              lancamentoStatus: element.lancamentoStatus,
               valor: element.valor
             }
           });
@@ -67,8 +66,11 @@ export class LancamentosComponent implements OnInit {
                 this.table.renderRows();
 
               }else {
+
                 this.chamadaServico.create(result)
                 .subscribe((data: LancamentosElement) =>{
+
+
                   this.dataSource.push(result);
                   this.table.renderRows();
 

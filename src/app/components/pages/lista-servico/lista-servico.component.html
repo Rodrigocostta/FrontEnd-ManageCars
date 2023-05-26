@@ -12,6 +12,8 @@
 
   <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8">
 
+
+
 <!-- Servico -->
 <ng-container matColumnDef="descricao">
   <th  mat-header-cell *matHeaderCellDef> Descrição</th>
@@ -33,7 +35,7 @@
       <button mat-icon-button (click)="onUpdate(element)" >
         <mat-icon>mode_edit</mat-icon>
      </button>
-      <button mat-icon-button (click)="onDelete(element.valor)">
+      <button mat-icon-button (click)="onDelete(element.id)">
         <mat-icon>delete</mat-icon>
       </button>
 
@@ -44,5 +46,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-//
+
 </div>

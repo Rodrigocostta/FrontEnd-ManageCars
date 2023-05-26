@@ -10,6 +10,8 @@ export class LancamentoService {
    private lancamentoURL = 'http://localhost:8080/lancamento';
 
   constructor(private http: HttpClient) { }
+
+  //get
     getLancamento(): Observable<LancamentosElement[]>{
      return this.http.get<LancamentosElement[]>(this.lancamentoURL);
 
@@ -25,7 +27,7 @@ export class LancamentoService {
 }
             // Delete
   delete( id:number): Observable<any>  {
-     return this.http.delete<any>(`${this.lancamentoURL}?id=${id}`);
+     return this.http.delete<any>(`${this.lancamentoURL}/${id}`);
  }
 
 }

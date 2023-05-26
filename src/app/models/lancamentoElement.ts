@@ -3,8 +3,8 @@ export interface LancamentosElement{
   data:Date;
   categoria: String;
   descricao: string;
-  pagamento:string;
-  situacao: string;
+  formaDePagamento:any;
+  lancamentoStatus: any;
   valor: number;
 
 
