@@ -38,6 +38,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { LancamentoComponent } from './components/shared/lancamento/lancamento.component';
 import { InfoComponent } from './components/shared/info/info.component';
+import { DialogServicoComponent } from './components/shared/dialog-servico/dialog-servico.component';
 
 
 
@@ -56,6 +57,7 @@ import { InfoComponent } from './components/shared/info/info.component';
     ElementDialogComponent,
     LancamentoComponent,
     InfoComponent,
+    DialogServicoComponent,
 
 
 

@@ -18,6 +18,8 @@ export class ListaServicoComponent implements OnInit {
   dataSource!: ServicoElement[];
 
   constructor(public dialog: MatDialog, public chamadaServico: ServicoService) {
+
+
     this.chamadaServico.getLancamento().subscribe((data: ServicoElement[]) => {
       this.dataSource = data;
     });
@@ -25,19 +27,19 @@ export class ListaServicoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  openDialog(element: ListarLancamneto | null): void {
+  formularioServico(element: ServicoElement | null): void {
     const dialogRef = this.dialog.open(ElementDialogComponent, {
       width: '265px',
       data:
         element === null
           ? {
               descricao: '',
-              valor: null,
+              valor: '',
             }
           : {
-              descricao: element.descricao,
               id: element.id,
-              valor: element.valor
+              descricao: element.descricao,
+              valor: element.valor,
             },
     });
 
@@ -45,32 +47,30 @@ export class ListaServicoComponent implements OnInit {
       if (result !== undefined) {
         const index = this.dataSource.findIndex((e) => e.id === result.id);
         if (index !== -1) {
-
-          //chmamada da api para edittar
           this.dataSource[index] = result;
           this.table.renderRows();
         } else {
-          //chamar api para cadastrar
-          this.dataSource.push(result);
-          this.table.renderRows();
+          this.chamadaServico
+            .create(result)
+            .subscribe((data: ServicoElement) => {
+              this.dataSource.push(result);
+              this.table.renderRows();
+            });
         }
       }
     });
   }
 
   //update
-  onUpdate(element: ListarLancamneto): void {
+  onUpdate(element: ServicoElement): void {
     ('');
-    this.openDialog(element);
+    this.formularioServico(element);
   }
 
   //delete
   onDelete(id: number): void {
-    this.dataSource = this.dataSource.filter((p) => p.id !== id);
+    this.chamadaServico.delete(id).subscribe(() => {
+      this.dataSource = this.dataSource.filter((p) => p.id !== id);
+    });
   }
-}
-export interface ListarLancamneto {
-  id: number;
-  descricao: string;
-  valor: number;
 }
