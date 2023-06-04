@@ -39,6 +39,8 @@ import {MatInputModule} from '@angular/material/input';
 import { LancamentoComponent } from './components/shared/lancamento/lancamento.component';
 import { InfoComponent } from './components/shared/info/info.component';
 import { DialogServicoComponent } from './components/shared/dialog-servico/dialog-servico.component';
+import { FormClienteComponent } from './components/shared/form-cliente/form-cliente.component';
+import { FormServicoComponent } from './components/shared/form-servico/form-servico.component';
 
 
 
@@ -58,6 +60,8 @@ import { DialogServicoComponent } from './components/shared/dialog-servico/dialo
     LancamentoComponent,
     InfoComponent,
     DialogServicoComponent,
+    FormClienteComponent,
+    FormServicoComponent,
 
 
 

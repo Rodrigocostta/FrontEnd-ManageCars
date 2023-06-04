@@ -67,8 +67,10 @@ export class LancamentosComponent implements OnInit {
       if (result !== undefined) {
         const index = this.dataSource.findIndex((e) => e.id === result.id);
         if (index !== -1) {
-          this.dataSource[index] = result;
-          this.table.renderRows();
+          this.chamadaServico.update(result).subscribe((updatedResult: LancamentosElement) => {
+            this.dataSource[index] = updatedResult;
+            this.table.renderRows();
+          });
         } else {
           this.chamadaServico
             .create(result)

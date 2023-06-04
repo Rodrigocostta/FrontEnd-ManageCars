@@ -1,6 +1,6 @@
+import { StatusElement } from 'src/app/models/StatusElement';
 import { Component, OnInit,Inject } from '@angular/core';
 import {MatDialog,MatDialogRef,MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { StatusElement } from '../../pages/status/status.component';
 
 @Component({
   selector: 'app-info',

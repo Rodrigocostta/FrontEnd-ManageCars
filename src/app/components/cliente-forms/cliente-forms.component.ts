@@ -22,10 +22,8 @@ export class ClienteFormsComponent {
   ngOnInit (): void {
 this.clienteForm = new FormGroup({
 
-id: new FormControl (''),
-cpf: new FormControl('',[Validators.required]),
 nome: new FormControl('', [Validators.required]),
-numero: new FormControl('', [Validators.required]),
+Contato: new FormControl('', [Validators.required]),
 marca: new FormControl('', [Validators.required]),
 modelo: new FormControl('', [Validators.required]),
 placa: new FormControl('', [Validators.required]),

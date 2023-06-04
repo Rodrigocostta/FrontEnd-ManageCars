@@ -20,9 +20,13 @@ export class LancamentoService {
     return this.http.post<LancamentosElement>(this.lancamentoURL, lancamento);
   }
 
-  //Editando
+  //update
   update(lancamento: LancamentosElement): Observable<LancamentosElement> {
-    return this.http.put<LancamentosElement>(this.lancamentoURL, lancamento);
+    const id = lancamento.id;
+    return this.http.put<LancamentosElement>(
+      `${this.lancamentoURL}/${id}`,
+      lancamento
+    );
   }
   // Delete
   delete(id: number): Observable<any> {

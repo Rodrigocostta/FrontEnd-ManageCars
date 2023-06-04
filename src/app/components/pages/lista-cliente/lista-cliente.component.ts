@@ -15,7 +15,11 @@ export class ListaClienteComponent implements OnInit {
   @ViewChild(MatTable)
   table!: MatTable<any>;
   painelOpenState = false;
-  displayedColumns: string[] = ['id', 'nome', 'contato', 'acoes'];
+  displayedColumns: string[] = [
+   'nome',
+   'contato',
+   'acoes'];
+
   dataSource!: ClienteElement[];
 
   constructor(
@@ -35,7 +39,7 @@ export class ListaClienteComponent implements OnInit {
       data:
         element === null
           ? {
-              id: null,
+
               nome: '',
               contato: '',
             }
@@ -48,9 +52,12 @@ export class ListaClienteComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== undefined) {
-        if (this.dataSource.map((p) => p.id).includes(result.position)) {
-          this.dataSource[result.position - 1] = result;
-          this.table.renderRows();
+        const index = this.dataSource.findIndex((e) => e.id === result.id);
+        if (index !== -1) {
+          this.chamadaServico.update(result).subscribe((updatedResult: ClienteElement) => {
+            this.dataSource[index] = updatedResult;
+            this.table.renderRows();
+          });
         } else {
           this.chamadaServico
             .create(result)

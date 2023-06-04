@@ -1,42 +1,38 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Cliente } from '../models/Cliente';
-
-
+import { ClienteElement } from '../models/ClienteElement';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClienteServiceService {
   clienteURL = 'http://localhost:8080/cliente/';
 
   constructor(private httpClient: HttpClient) {}
 
-
-                         //Listar Clientes
-  public getCliente(): Observable<Cliente[] >  {
-    return this.httpClient.get<Cliente[]>(this.clienteURL + 'listar');
+  //Listar Clientes
+  public getCliente(): Observable<ClienteElement[]> {
+    return this.httpClient.get<ClienteElement[]>(this.clienteURL + 'listar');
   }
 
-                          //buscar por id
-  public getById( id:number): Observable<Cliente>  {
-    return this.httpClient.get<Cliente>(this.clienteURL + `id/${id}`);
+  //buscar por id
+  pugetById(id: number): Observable<ClienteElement> {
+    return this.httpClient.get<ClienteElement>(this.clienteURL + `id/${id}`);
   }
 
-                          //salvando
-  public save(cliente:Cliente): Observable<any>{
-    return this.httpClient.put<any>(this.clienteURL +' novo',cliente);
+  //salvando
+  public save(cliente: ClienteElement): Observable<any> {
+    return this.httpClient.put<any>(this.clienteURL + ' novo', cliente);
   }
 
-                         // atualiza
+  // atualiza
 
-  public update(id: number,cliente:Cliente): Observable<any>{
-  return this.httpClient.put<any>(this.clienteURL +`update/${id}`,cliente);
+  public update(id: number, cliente: ClienteElement): Observable<any> {
+    return this.httpClient.put<any>(this.clienteURL + `update/${id}`, cliente);
+  }
+
+  // Delete
+  public delete(id: number): Observable<any> {
+    return this.httpClient.delete<any>(this.clienteURL + `delete/${id}`);
+  }
 }
-
-                         // Delete
-public delete( id:number): Observable<any>  {
-  return this.httpClient.delete<any>(this.clienteURL + `delete/${id}`);
-   }
-};

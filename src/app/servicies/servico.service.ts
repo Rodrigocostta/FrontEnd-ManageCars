@@ -19,9 +19,10 @@ export class ServicoService {
   create(servico: ServicoElement): Observable<ServicoElement> {
     return this.http.post<ServicoElement>(this.servicoURL, servico);
   }
-  //atualizar
-  update(servico: ServicoElement): Observable<ServicoElement> {
-    return this.http.put<ServicoElement>(this.servicoURL, servico);
+  //update
+  update(lancamento: ServicoElement): Observable<ServicoElement> {
+    const id = lancamento.id;
+    return this.http.put<ServicoElement>(`${this.servicoURL}/${id}`,lancamento);
   }
   //delete
   delete(id: number): Observable<any> {

@@ -1,10 +1,10 @@
 export interface LancamentosElement{
   id?:number;
   data:Date;
-  categoria: String;
+  categoria: string;
   descricao: string;
-  formaDePagamento:any;
-  lancamentoStatus: any;
+  formaDePagamento:string;
+  lancamentoStatus:string;
   valor: number;
 
 
