@@ -1,26 +1,16 @@
-<h1 mat-dialog-title>Dialog with elements</h1>
+<h1 mat-dialog-title>Favorite Animal</h1>
 <div mat-dialog-content>
-
   <ul>
 
     <li>
-      <mat-form-field appearance="fill">
-        <mat-label>Cliente:</mat-label>
-        <matInput [(ngModel)]="data"/>
-      </mat-form-field>
-
+      <ng-container matColumnDef="nomeCliente">
+      <label mat-header-cell *matHeaderCellDef>Nome:</label>
+      <p  mat-cell *matCellDef="let element">{{element.nomeCliente}} </p>
+    </ng-container>
     </li>
-    <li>
-      <span >&#10003;</span> Unicorn
-    </li>
-    <li>
-      <span >&#10003;</span> Lion
-    </li>
-  </ul>
 
-
+    </ul>
 </div>
-<div mat-dialog-actions>
   <button mat-button mat-dialog-close>Fechar</button>
-</div>
+
 

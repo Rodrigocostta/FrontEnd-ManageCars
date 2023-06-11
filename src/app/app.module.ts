@@ -25,8 +25,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StatusComponent } from './components/pages/status/status.component';
-import { NovoServicoComponent } from './components/pages/novo-servico/novo-servico.component';
-import { ClienteFormsComponent } from './components/cliente-forms/cliente-forms.component';
 import { NovoClienteComponent } from './components/pages/novo-cliente/novo-cliente.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ListaClienteComponent } from './components/pages/lista-cliente/lista-cliente.component';
@@ -38,9 +36,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { LancamentoComponent } from './components/shared/lancamento/lancamento.component';
 import { InfoComponent } from './components/shared/info/info.component';
-import { DialogServicoComponent } from './components/shared/dialog-servico/dialog-servico.component';
+import { DialogclienteComponent } from './components/shared/dialog-cliente/dialog-cliente.component';
 import { FormClienteComponent } from './components/shared/form-cliente/form-cliente.component';
 import { FormServicoComponent } from './components/shared/form-servico/form-servico.component';
+
 
 
 
@@ -50,8 +49,6 @@ import { FormServicoComponent } from './components/shared/form-servico/form-serv
     HeaderComponent,
     FooterComponent,
     StatusComponent,
-    NovoServicoComponent,
-    ClienteFormsComponent,
     NovoClienteComponent,
     ListaClienteComponent,
     ListaServicoComponent,
@@ -59,9 +56,9 @@ import { FormServicoComponent } from './components/shared/form-servico/form-serv
     ElementDialogComponent,
     LancamentoComponent,
     InfoComponent,
-    DialogServicoComponent,
     FormClienteComponent,
     FormServicoComponent,
+    DialogclienteComponent,
 
 
 

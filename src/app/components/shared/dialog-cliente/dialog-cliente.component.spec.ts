@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NovoServicoComponent } from './novo-servico.component';
+import { DialogclienteComponent } from './dialog-cliente.component';
 
-describe('NovoServicoComponent', () => {
-  let component: NovoServicoComponent;
-  let fixture: ComponentFixture<NovoServicoComponent>;
+describe('Dailog', () => {
+  let component: DialogclienteComponent;
+  let fixture: ComponentFixture<DialogclienteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NovoServicoComponent ]
+      declarations: [ DialogclienteComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NovoServicoComponent);
+    fixture = TestBed.createComponent(DialogclienteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

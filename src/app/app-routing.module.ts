@@ -1,6 +1,4 @@
 import { NovoClienteComponent } from './components/pages/novo-cliente/novo-cliente.component';
-import { ClienteFormsComponent } from './components/cliente-forms/cliente-forms.component';
-import { NovoServicoComponent } from './components/pages/novo-servico/novo-servico.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StatusComponent } from './components/pages/status/status.component';
@@ -24,8 +22,6 @@ const routes: Routes = [
   {path: '', component: StatusComponent},
   {path: 'footer', component:FooterComponent},
   {path: 'header', component:HeaderComponent},
-  {path: 'novoservico', component: NovoServicoComponent},
-  {path: 'clienteForm', component: ClienteFormsComponent},
   {path: 'novo-cliente', component: NovoClienteComponent},
   {path: 'lista-cliente', component: ListaClienteComponent},
   {path: 'lista-servico',component: ListaServicoComponent},

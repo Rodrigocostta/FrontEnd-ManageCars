@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Informação Detalhada</h1>
+<div mat-dialog-content>
+  <div class="">
+    <label>Cliente:</label>
+    <a *matCellDef="let info">{{ info.nomeCliente }}</a>
+  </div>
+
+  <div class="">
+    <label>Telefone:</label>
+    <a *matCellDef="let info">{{ info.Telefone }}</a>
+  </div>
+
+  <div class="">
+    <label>Marca:</label>
+    <a *matCellDef="let info">{{ info.marca }}</a>
+  </div>
+
+  <div class="">
+    <label>Modelo:</label>
+    <a *matCellDef="let info">{{ info.modelo }}</a>
+
+    <div class="">
+      <label>Placa:</label>
+      <a *matCellDef="let info">{{ info.placa }}</a>
+    </div>
+
+    <div class="">
+      <label>Serviço:</label>
+      <a *matCellDef="let info">{{ info.descricao }}</a>
+    </div>
+
+    <div class="">
+      <label>Total a Pagar:</label>
+      <a *matCellDef="let info">{{ info.valorTotal }}</a>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class LancamentoService {
-  private lancamentoURL = 'http://localhost:8080/lancamento';
+  private lancamentoURL = 'http://localhost:8080/lancamentos';
 
   constructor(private http: HttpClient) {}
 

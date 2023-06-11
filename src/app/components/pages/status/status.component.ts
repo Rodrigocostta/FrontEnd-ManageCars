@@ -4,33 +4,43 @@ import { InfoComponent } from '../../shared/info/info.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
+import { InfoOrdemServicoComponent } from '../../shared/info-ordem-servico/info-ordem-servico.component';
+
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 
 @Component({
   selector: '',
   templateUrl: './status.component.html',
   styleUrls: ['./status.component.css'],
 })
+
 export class StatusComponent implements OnInit {
+
   @ViewChild(MatTable)
   table!: MatTable<any>;
   painelOpenState = false;
   displayedColumns: string[] = [
-    'info',
-    'nome',
-    'modelo',
-    'placa',
-    'servico',
-    'total',
+
+    'nomeCliente',
+    'placaVeiculo',
+    'formaPagamento',
+    'status',
+    'totalPagar',
     'acoes',
   ];
 
   dataSource!: StatusElement[];
 
   constructor(public dialog: MatDialog, public chamadaServico: StatusService) {
-    this.chamadaServico.getLancamento().subscribe((data: StatusElement[]) => {
+    this.chamadaServico.getstatus().subscribe((data: StatusElement[]) => {
       this.dataSource = data;
     });
+
+
   }
+
 
   ngOnInit(): void {}
 
@@ -41,26 +51,27 @@ export class StatusComponent implements OnInit {
         element === null
           ? {
 
-              nome: '',
-              placa: '',
-              modelo:'',
-              servico: '',
-              total: '',
+            nomeCliente: '',
+            placaVeiculo: '',
+            formaPagamento:'',
+              status: '',
+              totalPagar: '',
             }
           : {
               id: element.id,
-              nome: element.nome,
-              modelo: element.modelo,
-
-              placa: element.placa,
-              servico: element.servico,
-              total: element.total,
+              nomeCliente: element.nomeCliente,
+              placaVeiculo: element.placaVeiculo,
+              formaPagamento: element.formaPagamento,
+              status: element.status,
+              totalPagar: element.totalPagar,
             },
     });
 
+
+
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== undefined) {
-        const index = this.dataSource.findIndex((e) => e.id === result.id);
+        const index = this.dataSource.findIndex((e) => e.id === result.cont);
         if (index !== -1) {
           this.chamadaServico
             .update(result)
@@ -79,6 +90,25 @@ export class StatusComponent implements OnInit {
       }
     });
   }
+  infoOrdemSrivico(info: StatusElement | null ) {
+    this.dialog.open(InfoOrdemServicoComponent, {
+
+      data:
+        info === null
+          ? {
+
+            nomeCliente: '',
+
+            }
+          : {
+              id: info.id,
+              nomeCliente: info.nomeCliente,
+
+            },
+    });
+  }
+
+
 
   //update
   onUpdate(element: StatusElement): void {

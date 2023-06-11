@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ClienteElement } from '../models/ClienteElement';
+import { NovoClienteElement } from '../models/NovoCliente';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteElementService {
-  clienteURL = 'http://localhost:8080/cliente';
+  clienteURL = 'http://localhost:8080/clientes';
 
   constructor(private http: HttpClient) {}
 
@@ -17,12 +18,13 @@ export class ClienteElementService {
   }
 
   //salvando
-  public create(lancamento: ClienteElement): Observable<ClienteElement> {
-    return this.http.post<any>(this.clienteURL + ' novo', lancamento);
+  public create(cliente: NovoClienteElement): Observable<NovoClienteElement> {
+    return this.http.post<any>(this.clienteURL, cliente);
   }
   //update
   update(cliente: ClienteElement): Observable<ClienteElement> {
-    return this.http.put<ClienteElement>(this.clienteURL, cliente);
+    const id = cliente.id;
+    return this.http.put<ClienteElement>( `${this.clienteURL}/${id}`,cliente)
   }
   //delete
   delete(id: number): Observable<any> {

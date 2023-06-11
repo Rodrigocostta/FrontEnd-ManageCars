@@ -7,23 +7,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class StatusService {
-  private statusoURL = 'http://localhost:8080/ordemServico';
+  private statusoURL = 'http://localhost:8080/ordem-servicos';
 
   constructor(private http: HttpClient) {}
 
   //get
-  getLancamento(): Observable<StatusElement[]> {
+  getstatus(): Observable<StatusElement[]> {
     return this.http.get<StatusElement[]>(this.statusoURL);
   }
   //salvando
-  create(lancamento: StatusElement): Observable<StatusElement> {
-    return this.http.post<StatusElement>(this.statusoURL, lancamento);
+  create(status: StatusElement): Observable<StatusElement> {
+    return this.http.post<StatusElement>(this.statusoURL, status);
   }
 
   //update
-  update(lancamento: StatusElement): Observable<StatusElement> {
-    const id = lancamento.id;
-    return this.http.put<StatusElement>(`${this.statusoURL}/${id}`, lancamento);
+  update(status: StatusElement): Observable<StatusElement> {
+    const id = status.id;
+    return this.http.put<StatusElement>(`${this.statusoURL}/${id}`, status);
   }
   // Delete
   delete(id: number): Observable<any> {

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ServicoService {
-  private servicoURL = 'http://localhost:8080/servico';
+  private servicoURL = 'http://localhost:8080/servicos';
 
   constructor(private http: HttpClient) {}
 

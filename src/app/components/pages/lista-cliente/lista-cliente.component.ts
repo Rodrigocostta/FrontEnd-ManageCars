@@ -1,10 +1,11 @@
+import { NovoClienteElement } from './../../../models/NovoCliente';
+import { DialogclienteComponent } from './../../shared/dialog-cliente/dialog-cliente.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ClienteElement } from './../../../models/ClienteElement';
 import { Component, OnInit } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
 import { ClienteElementService } from 'src/app/servicies/cliente-element.service';
-import { NovoClienteComponent } from '../novo-cliente/novo-cliente.component';
 
 @Component({
   selector: 'app-lista-cliente',
@@ -19,8 +20,18 @@ export class ListaClienteComponent implements OnInit {
    'nome',
    'contato',
    'acoes'];
-
   dataSource!: ClienteElement[];
+    novoCliente: NovoClienteElement = {
+      nome: '',
+      telefones: [],
+      veiculos: [{
+        marca: '',
+        modelo: '',
+        placa: ''
+      }]
+    };
+
+
 
   constructor(
     public dialog: MatDialog,
@@ -28,27 +39,43 @@ export class ListaClienteComponent implements OnInit {
   ) {
     this.chamadaServico.ListarCliente().subscribe((data: ClienteElement[]) => {
       this.dataSource = data;
+
+
+
     });
   }
 
   ngOnInit(): void {}
 
+  cadastrarNovoCliente(): void {
+    this.chamadaServico.create(this.novoCliente).subscribe((data: NovoClienteElement) => {
+      this.dataSource.push(this.novoCliente);
+      this.table.renderRows();
+    });
+  }
+
   formularioCliente(element: ClienteElement | null): void {
-    const dialogRef = this.dialog.open(NovoClienteComponent, {
-      width: '500px',
+    const dialogRef = this.dialog.open(DialogclienteComponent, {
+      width: '265',
       data:
         element === null
           ? {
 
               nome: '',
-              contato: '',
+              telefones:'',
+
             }
           : {
               id: element.id,
               nome: element.nome,
-              contato: element.contato,
+              telefones: element.telefones,
+
             },
+
+
     });
+
+
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result !== undefined) {
@@ -70,6 +97,8 @@ export class ListaClienteComponent implements OnInit {
     });
   }
 
+
+
   //update
   onUpdate(element: ClienteElement): void {
     ('');
@@ -82,4 +111,5 @@ export class ListaClienteComponent implements OnInit {
       this.dataSource = this.dataSource.filter((p) => p.id !== id);
     });
   }
+
 }

@@ -3,39 +3,29 @@
 <div class = "container">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-  <!-- informaçoes -->
-  <ng-container matColumnDef="info">
-    <th  mat-header-cell *matHeaderCellDef> Detalhar</th>
-    <td mat-cell *matCellDef="let element">   <button mat-icon-button >
-
-      <mat-icon>info_outline</mat-icon>
-    </button> </td>
-
-
-  </ng-container>
 
   <!-- cliente -->
-  <ng-container matColumnDef="nome">
+  <ng-container matColumnDef="nomeCliente">
     <th  mat-header-cell *matHeaderCellDef> Cliente</th>
-    <td mat-cell *matCellDef="let element"> {{element.nome}}  </td>
+    <td mat-cell *matCellDef="let element"> {{element.nomeCliente}}  </td>
   </ng-container>
 
     <!-- MOdelo -->
-    <ng-container matColumnDef="modelo">
-      <th  mat-header-cell *matHeaderCellDef> Modelo</th>
-      <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+    <ng-container matColumnDef="placaVeiculo">
+      <th  mat-header-cell *matHeaderCellDef> Placa</th>
+      <td mat-cell *matCellDef="let element"> {{element.placaVeiculo}} </td>
     </ng-container>
 
-  <!-- PLaca-->
-  <ng-container matColumnDef="placa">
-    <th mat-header-cell *matHeaderCellDef> Placa </th>
-    <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
+  <!-- Tipo de Serviço -->
+  <ng-container matColumnDef="formaPagamento">
+    <th  mat-header-cell *matHeaderCellDef> Pagamento</th>
+    <td mat-cell *matCellDef="let element"> {{element.formaPagamento}} </td>
   </ng-container>
 
-  <!-- Tipo de Serviço -->
-  <ng-container matColumnDef="servico">
-    <th  mat-header-cell *matHeaderCellDef> Serviço</th>
-    <td mat-cell *matCellDef="let element"> {{element.servico}} </td>
+   <!-- Total a status -->
+   <ng-container matColumnDef="status">
+    <th  mat-header-cell *matHeaderCellDef> Status</th>
+    <td mat-cell *matCellDef="let element"> {{element.status}} </td>
   </ng-container>
 
    <!-- Acões  -->
@@ -44,12 +34,12 @@
     <td mat-cell *matCellDef="let element">
       <div class = "containerIcon">
 
-        <button mat-icon-button >
-          <mat-icon>done_all</mat-icon>
+        <button mat-icon-button  (click)="infoOrdemSrivico(null)">
+           <mat-icon>info_outline</mat-icon>
         </button>
 
-        <button mat-icon-button  (click)="onDelete(element.id)">
-          <mat-icon >close</mat-icon>
+        <button mat-icon-button >
+          <mat-icon>done_all</mat-icon>
         </button>
 
       </div>
@@ -58,9 +48,9 @@
 
 
   <!-- Total a pagar -->
-  <ng-container matColumnDef="total">
+  <ng-container matColumnDef="totalPagar">
     <th  mat-header-cell *matHeaderCellDef> Total</th>
-    <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.totalPagar}} </td>
   </ng-container>
 
 
